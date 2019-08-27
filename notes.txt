@@ -1,0 +1,27 @@
+So, you've installed Gameplay Football beta2, and you're getting all kinds of errors about missing libraries..
+
+I'm sorry about this, it's a result of GF being closed source; the source would need serious commenting/cleaning up if I ever want to open source it, else I'd feel sorry for giving developers headaches :p
+*** update: GF is now open source! you can download and build the github version:
+*** https://github.com/BazkieBumpercar/GameplayFootball
+*** https://github.com/BazkieBumpercar/Blunted2
+
+Anyway, here's some tips that might help you. Some prior knowledge of linux is helpful. Another hint: 'strace ./football' will tell you in what location my game looks for the missing libs, so you know where to put them/where to put links to them
+
+* Missing libSGE
+You can find the source here: https://github.com/flibitijibibo/libSGE
+Compile from source
+This will install libGSE2.so.0, while my game will look for libSGE.so.0; just create a link, it seems to work fine.
+
+* Missing libts
+You can find the source here: https://github.com/kergoth/tslib
+Compile from source
+If still missing, create link in the proper location
+
+* Missing libjpeg / libtiff
+I've secretly uploaded these two here: http://properlydecent.com/releases/libs
+Not sure if that's legal or anything, so ssssh! ;)
+You probably want to put them in /usr/lib
+
+* Missing libwepb
+Your distro will likely include some version of libwebp, but my game seems to specifically look for libwebp2.so - so create a link to your installed version in the proper location
+
